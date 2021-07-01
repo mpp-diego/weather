@@ -1,0 +1,10 @@
+# DexGuard license file
+licensee              = MYPINPAD
+contact               = Dorian Cussen
+contactEmail          = dorianc@mypinpad.com
+product               = DexGuard
+version               = 7.*,8.*,9.*
+package               = app.openmpos.stone.tapton
+expiryDate            = 2022-03-31
+maintenanceExpiryDate = 2022-03-31
+key                   = 40e5fb894929d9f5f4ddc96bf171225b461de51063d24438a3638077ab5b2542e499ea147461bb8542dad403962bb9b76bb7d7549540ebaff04a753bd2e503c6

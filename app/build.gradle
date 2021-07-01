@@ -22,12 +22,27 @@ android {
         vectorDrawables.useSupportLibrary = true
 
     }
+    buildscript {
+        repositories {
+            flatDir{dirs '/Users/diegocaridei/Desktop/GIT/weather/app/dexguard/lib'}
+        }
+        dependencies {
+            classpath ':dexguard'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled true
+            shrinkResources true
+            proguardFile getDefaultDexGuardFile('dexguard-debug.pro')
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -89,5 +104,6 @@ android.applicationVariants.all { variant ->
 
 if (googleServicesFile.exists()) {
     System.out.println("Google Service File Exist")
+    apply plugin: 'dexguard'
     apply plugin: 'com.google.gms.google-services'
 }

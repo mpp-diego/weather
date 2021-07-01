@@ -1,0 +1,10 @@
+# DexGuard license file
+licensee              = MYPINPAD
+contact               = Dorian Cussen
+contactEmail          = dorianc@mypinpad.com
+product               = DexGuard
+version               = 7.*,8.*,9.*
+package               = com.spectratech.soepay.softpos
+expiryDate            = 2022-02-22
+maintenanceExpiryDate = 2022-02-22
+key                   = 0dba46c579a5eb8742691154b005a143073e49baf6ee91dc66d6fdfc8d5c86696891f5f9864993e4dde17adf025a8a8d592df977b7a2aef668483458671ba616

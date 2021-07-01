@@ -1,0 +1,2 @@
+-dalvik
+-include dexguard-common.pro

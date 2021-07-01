@@ -1,0 +1,10 @@
+# DexGuard license file
+licensee              = MYPINPAD
+contact               = Dorian Cussen
+contactEmail          = dorianc@mypinpad.com
+product               = DexGuard
+version               = 7.*,8.*,9.*
+package               = com.mypinpad.openmpos.terminal,com.mypinpad.openmpos.terminal.demo.softpos,com.mypinpad.openmpos.terminal.demo.softpos.eu,com.mypinpad.openmpos.terminal.demo.softpos.au,com.mypinpad.openmpos.terminal.demo.om,com.mypinpad.openmpos.terminal.demo.om.eu,com.mypinpad.openmpos.terminal.demo.om.au,com.mypinpad.openmpos.terminal.test,com.mypinpad.openmpos.terminal.test.secure,com.mypinpad.openmpos.terminal.stpilot,com.mypinpad.openmpos.terminal.stpilot.trial
+expiryDate            = 2022-02-13
+maintenanceExpiryDate = 2022-02-13
+key                   = 3537976dcd784e956a2fd424ae413a3ab2e7c12a47371555f684a5c6bba96487094fe3b28b13a9dfe06ee8a56f881ad4c610784122aef45c59a5e23b84a831d9
