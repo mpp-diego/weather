@@ -1,5 +1,21 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url = uri("dexguard/lib")
+        }
+    }
+    dependencies {
+        //noinspection GradleDynamicVersion
+        classpath "com.guardsquare:dexguard-gradle-plugin:+"
+    }
+}
+
+
 apply plugin: 'com.android.application'
 apply plugin: 'io.objectbox'
+apply plugin: 'dexguard'
 
 File googleServicesFile = rootProject.file("app/google-services.json")
 if (googleServicesFile.exists()) {
@@ -13,7 +29,7 @@ def versionPatch = 0
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.github.bkhezry.weather"
+        applicationId "com.mypinpad.openmpos.terminal.test"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
@@ -22,27 +38,26 @@ android {
         vectorDrawables.useSupportLibrary = true
 
     }
-    buildscript {
-        repositories {
-            flatDir{dirs '/Users/diegocaridei/Desktop/GIT/weather/app/dexguard/lib'}
+    signingConfigs {
+        debug {
+            storeFile file("./signing/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
         }
-        dependencies {
-            classpath ':dexguard'
+        release {
+            storeFile file('./signing/release.keystore')
+            storePassword "android"
+            keyAlias "androidreleasekey"
+            keyPassword "android"
         }
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            applicationIdSuffix ".debug"
-            minifyEnabled true
-            shrinkResources true
-            proguardFile getDefaultDexGuardFile('dexguard-debug.pro')
-        }
-
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -50,6 +65,22 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+}
+
+dexguard {
+    path = "dexguard"
+    license = "dexguard/dexguard-license.txt"
+    jvmArgs("-Xms512M", "-Xmx4096M")
+    configurations {
+        debug {
+            configuration("proguard-rules.pro")
+            defaultConfiguration("dexguard-debug.pro")
+        }
+        release {
+            configuration("proguard-rules.pro")
+            defaultConfiguration("dexguard-release.pro")
+        }
     }
 }
 

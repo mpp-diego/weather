@@ -25,6 +25,11 @@
 -keepattributes Signature
 -keepattributes *Annotation*
 
+-android
+-obfuscatecode,high class com.mypinpad.**
+-multidex
+
+
 #butterknife
 -keep public class * implements butterknife.Unbinder { public <init>(...); }
 -keep class butterknife.*
@@ -38,7 +43,7 @@
 -dontwarn org.gradle.**
 
 #ObjectBox
--keep class com.github.bkhezry.weather.model.** { *; }
+-keep class com.mypinpad.openmpos.terminal.test.model.** { *; }
 
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
 # EnclosingMethod is required to use InnerClasses.
